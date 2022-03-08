@@ -1,15 +1,26 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% load static %}
+
+
+    {% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{% if object %}Edit Task {% else %} Create New Task {% endif %}</title>
 </head>
-<body>
-<h3>{% if object %}Edit Task {% else %} Create New Task {% endif %}</h3>
+<body style=" background-image: url('https://images.unsplash.com/photo-1634078111133-a1e12d6131b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80');
+background-size: cover;
+background-repeat:  no-repeat;">
+<h1 style="text-align: center; color: white;">{% if object %}Edit Task {% else %} Create New Task {% endif %}</h1>
+<div class="container" style="margin-left: 500px; color: white;">
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <p><input type="submit" class="btn btn-success" value="Submit"></p>
     </form>
+    </div>
 </body>
 </html>
+{% endblock content %}
